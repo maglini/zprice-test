@@ -56,9 +56,7 @@ export class UsersApiService {
   }
 
   delete(id) {
-    return this.http.delete(`${this.url}${id}`).subscribe(data=>{
-
-    })
+    return this.http.delete(`${this.url}${id}`)
   }
 
 

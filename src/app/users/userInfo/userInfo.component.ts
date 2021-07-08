@@ -44,8 +44,10 @@ export class UserInfoComponent {
     this.isEditableMode = !this.isEditableMode
   }
   onDel() {
-    this.http.delete(this.id)
-    this.router.navigate([''])
+    this.http.delete(this.id).subscribe(data=>{
+      this.router.navigate([''])
+    })
+
   }
 
   onSubmit() {
