@@ -1,0 +1,12 @@
+<div>
+  <label>{{title}}</label>
+  <div *ngIf="!isEditableMode">
+    <div>{{value}}</div>
+  </div>
+  <div *ngIf="isEditableMode">
+    <input class="form-control" type="text" formControlName="{{name}}" value=""/>
+    <div *ngIf="form.get(name).invalid && form.get(name).touched">
+      <small *ngIf="form.get(name).errors.required">Name is required</small>
+    </div>
+  </div>
+</div>

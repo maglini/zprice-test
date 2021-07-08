@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>UsersPage</h1>
+  <h1 *ngIf="users.length===0">
+    LOADING...
+  </h1>
+
+
+  <div class="card-deck">
+  <app-user *ngFor="let user of users"
+            [id]="user.id"
+            [name]="user.name"
+            [surname]="user.surname"
+            [patronymic]="user.patronymic"
+            [number]="user.number"
+            [email]="user.email"
+            [address]="user.address">
+  </app-user>
+  </div>
+
+  <app-create-user [users]="users"></app-create-user>
+</div>

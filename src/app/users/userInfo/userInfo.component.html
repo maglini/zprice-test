@@ -1,0 +1,120 @@
+<div class="container">
+  <h1>User info page id:{{id}}</h1>
+
+  <div (click)="onEdit()">
+    <div>
+      <p class="text-primary">Редактировать</p>
+    </div>
+  </div>
+  <div (click)="onDel()">
+    <div>
+      <p class="text-danger">Удалить</p>
+    </div>
+  </div>
+
+
+  <form class="card" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!--    &lt;!&ndash;General alert about error after server response&ndash;&gt;-->
+    <!--    <div *ngIf="isUserExist">-->
+    <!--      <div class="alert-danger">Sorry user with such email or phone already exist! :(</div>-->
+    <!--    </div>-->
+    <!--Name-->
+    <div>
+      <label>Имя</label>
+      <div *ngIf="!isEditableMode">
+        <div>{{user.name}}</div>
+      </div>
+      <div *ngIf="isEditableMode">
+        <input class="form-control" type="text" formControlName="name"/>
+        <div *ngIf="form.get('name').invalid && form.get('name').touched">
+          <small *ngIf="form.get('name').errors.required">Name is required</small>
+        </div>
+      </div>
+    </div>
+    <!--Surname-->
+    <div>
+      <label>Фамиилия</label>
+      <div *ngIf="!isEditableMode">
+        <div>{{user.surname}}</div>
+      </div>
+      <div *ngIf="isEditableMode">
+        <input class="form-control" type="text" formControlName="surname"/>
+        <div *ngIf="form.get('surname').invalid && form.get('surname').touched">
+          <small *ngIf="form.get('surname').errors.required">Surname is required</small>
+        </div>
+      </div>
+    </div>
+
+    <!--Patronymic-->
+    <div>
+      <label>Отчество</label>
+      <div *ngIf="!isEditableMode">
+        <div>{{user.patronymic}}</div>
+      </div>
+      <div *ngIf="isEditableMode">
+        <input class="form-control" type="text" formControlName="patronymic"/>
+        <div *ngIf="form.get('patronymic').invalid && form.get('patronymic').touched">
+          <small *ngIf="form.get('patronymic').errors.required">Patronymic is required</small>
+        </div>
+      </div>
+    </div>
+
+
+    <!--Number-->
+    <div>
+      <label>Моб.Телефон</label>
+      <div *ngIf="!isEditableMode">
+        <div>{{user.number}}</div>
+      </div>
+      <div *ngIf="isEditableMode">
+        <input class="form-control" type="text" formControlName="number"/>
+        <div *ngIf="form.get('number').invalid && form.get('number').touched">
+          <small *ngIf="form.get('number').errors.required">Number is required</small>
+          <small *ngIf="form.get('number').errors.pattern">Number error pattern</small>
+        </div>
+      </div>
+    </div>
+
+    <!--Email-->
+    <div>
+      <label>Почта</label>
+      <div *ngIf="!isEditableMode">
+        <div>{{user.email}}</div>
+      </div>
+      <div *ngIf="isEditableMode">
+        <input class="form-control" type="email" formControlName="email"/>
+        <div *ngIf="form.get('email').invalid && form.get('email').touched">
+          <small *ngIf="form.get('email').errors.required">Email is required</small>
+        </div>
+      </div>
+    </div>
+
+    <!--Address-->
+    <div>
+      <label>Адресс</label>
+      <div *ngIf="!isEditableMode">
+        <div>{{user.address}}</div>
+      </div>
+      <div *ngIf="isEditableMode">
+        <input class="form-control" type="text" formControlName="address"/>
+        <div *ngIf="form.get('address').invalid && form.get('address').touched">
+          <small *ngIf="form.get('address').errors.required">Address is required</small>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="isEditableMode">
+      <button class="btn mt-2" type="submit" [disabled]="form.invalid">
+        <div>
+          <p class="text-primary">Отправить</p>
+        </div>
+      </button>
+    </div>
+    <!--        <app-smart-input [title]="Name"-->
+    <!--                         [form]="form"-->
+    <!--                         [isEditableMode]="isEditableMode"-->
+    <!--                         [value]="user.name"-->
+    <!--                         [name]="name"></app-smart-input>-->
+
+  </form>
+</div>

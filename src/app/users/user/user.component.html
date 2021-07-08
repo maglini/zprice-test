@@ -1,0 +1,22 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{name}} {{surname}} {{patronymic}}</h5>
+    <div>
+      <div>Phone:</div>
+      <div class="card-text">{{number}}</div>
+    </div>
+    <div>
+      <div>Email:</div>
+      <div class="card-text">{{email}}</div>
+    </div>
+    <div>
+      <div>Address:</div>
+      <div class="card-text">{{address}}</div>
+    </div>
+
+
+    <a [routerLink]="['user',id]"
+       class="btn btn-primary">Detail</a>
+
+  </div>
+</div>
